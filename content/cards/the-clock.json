@@ -2,19 +2,19 @@
   "id": "the-clock",
   "title": "The Clock",
   "number": "VI",
-  "status": "draft",
-  "symbol": "skull",
+  "status": "published",
+  "symbol": "Never",
   "frontImage": "/cards/the-clock/front.jpg",
   "backImage": "/cards/shared/back.png",
-  "keywords": ["time", "never"],
+  "keywords": ["winding", "debt", "thirteen"],
   "vanishEffect": "embers",
   "stories": [
     {
-      "id": "awaiting",
-      "status": "draft",
-      "title": "The Clock",
-      "fortuneLine": "",
-      "body": "[awaiting fable]"
+      "id": "default",
+      "status": "published",
+      "title": "The Hour of His Taking",
+      "fortuneLine": "You bought a dusk that will not fall, and the clock will collect it from your bones.",
+      "body": "A man was given the hour of his taking, inked on the inside of his wrist.\n\nHe found a clock standing in a parlor already underwater, a bird with one burning eye upon the crown.\n\nThe bargain did not need a mouth.\nHe paid in evenings.\nDusk lifted from the valley and did not return.\nThe hands learned to rest at ten and two, and would not close.\n\nYears of afternoon.\nThe writing on his wrist faded.\nThe rooms forgot their names.\n\nWhen his fingers failed the key, he sat in the black water and waited for the taking.\n\nThe pendulum kept its little law without him.\nIt had not been keeping his hours.\nIt had been keeping the debt.\n\nWhere twelve should have been, a thirteenth mark.\nBeneath it, the word the maker set before the first winding.\n\nThe bird bent to the keyhole and gave the works their name.\n\nNever."
     }
   ]
 }

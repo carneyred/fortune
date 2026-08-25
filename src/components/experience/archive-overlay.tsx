@@ -92,7 +92,9 @@ export function ArchiveOverlay({
                   </p>
                   <div className="font-serif mt-4 space-y-3 text-[#2c1c12]">
                     {selected.story.body.split(/\n\s*\n/).map((part) => (
-                      <p key={part}>{part}</p>
+                      <p key={part} className="whitespace-pre-line">
+                        {part}
+                      </p>
                     ))}
                   </div>
                   {selected.story.fortuneLine ? (

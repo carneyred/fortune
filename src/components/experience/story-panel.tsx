@@ -39,7 +39,7 @@ export function StoryPanel({
           {shown.map((paragraph) => (
             <motion.p
               key={paragraph}
-              className="font-serif text-lg leading-relaxed text-[#2c1c12]"
+              className="font-serif text-lg leading-relaxed whitespace-pre-line text-[#2c1c12]"
               initial={{ opacity: 0, y: 8 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.6 }}

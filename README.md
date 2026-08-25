@@ -30,7 +30,7 @@ npm start
 5. **Story** — the chosen face stays; the parchment reveals beside the candle. The fortune line comes last.
 6. **Aftermath** — Draw again, Archive, or Return.
 
-The Clock is shipped as `draft` and never enters the draw. The intro may still speak of twelve cards. The playable table always shows five.
+The Clock is published (`The Hour of His Taking`) and enters the draw like the rest of the deck. The intro may still speak of twelve cards. The playable table always shows five.
 
 ## Content architecture
 
