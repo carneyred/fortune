@@ -1,0 +1,20 @@
+{
+  "id": "the-carnival",
+  "title": "The Carnival",
+  "number": "VII",
+  "status": "published",
+  "symbol": "mask",
+  "frontImage": "/cards/the-carnival/front.jpg",
+  "backImage": "/cards/shared/back.png",
+  "keywords": ["music", "forgetting", "shadow"],
+  "vanishEffect": "flash-fire",
+  "stories": [
+    {
+      "id": "default",
+      "status": "published",
+      "title": "The Carnival",
+      "fortuneLine": "Some music does not give you back.",
+      "body": "A boy followed music into the woods and found a fairground that wasn’t there before.\n\nHe rode the carousel and danced under fireworks.\n\nWhen he returned home, no one remembered his name.\n\nOnly his shadow kept dancing."
+    }
+  ]
+}

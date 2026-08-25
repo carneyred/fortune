@@ -1,0 +1,27 @@
+{
+  "id": "sanctuary",
+  "title": "Sanctuary",
+  "number": "IV",
+  "status": "published",
+  "symbol": "nest",
+  "frontImage": "/cards/sanctuary/front.jpg",
+  "backImage": "/cards/shared/back.png",
+  "keywords": ["safety", "appetite", "entrapment"],
+  "vanishEffect": "dust",
+  "stories": [
+    {
+      "id": "pheasant-and-feast",
+      "status": "published",
+      "title": "The Pheasant and the Feast",
+      "fortuneLine": "Safety can be a snare.",
+      "body": "A pheasant, torn by wolves at the wood’s edge, dragged itself into a farmyard and fell among the hens.\n\nThe farmer’s wife bound its wing with clean linen. The children fed it cracked corn from their palms, and named it as if naming were a kind of keeping.\n\nWinter came. The bird grew sleek, then heavy, then too fat to lift itself over the fence. It no longer dreamed of the sky. The yard was warm. The grain was sure. The wolves were only a story told to the dogs.\n\nOne evening, from the kitchen window, it heard the farmer say, “He’ll look beautiful on the table.”\n\nThe pheasant understood then that it had been saved for the feast, not from it.\n\nWhen the first thaw came, it tried the air and found its wings were only ornaments. It stood in the yard, listening to the knives being sharpened on the back step, and wondered whether the wolves had ever been the crueler thing."
+    },
+    {
+      "id": "rabbits-nest",
+      "status": "published",
+      "title": "The Rabbit’s Nest",
+      "fortuneLine": "The nest that never opens is a grave.",
+      "body": "A rabbit fled a hawk into a hole it had never seen.\n\nThe tunnel was warm. A mole-voice said, “Come further. You are welcome.” The rabbit went down, and down, and the hawk’s shadow passed from the mouth of the earth.\n\nIt was kind in the dark. There was food that did not run. There were soft walls that seemed to remember the shape of a body.\n\nOn the third day the rabbit looked up and found the roof was stone. It looked down and found the floor was bones — small and stacked, each the size of a rabbit who had also been welcome.\n\nThe mole-voice, closer now, said, “It’s where you’re safe. It’s where you’ve always been.”\n\nThe rabbit did not answer. The tunnel did not open."
+    }
+  ]
+}

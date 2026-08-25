@@ -1,0 +1,17 @@
+{
+  "id": "corridor",
+  "title": "The Corridor",
+  "backgroundImage": "/scenes/corridor.jpg",
+  "ambientKey": "corridor",
+  "autoAdvanceMs": 14000,
+  "blocks": [
+    {
+      "id": "lead",
+      "text": "The old woman then leads you down a long narrow corridor and to a small dark room."
+    },
+    {
+      "id": "threshold",
+      "text": "She stops at the door boundary and says, “I go no further.”"
+    }
+  ]
+}

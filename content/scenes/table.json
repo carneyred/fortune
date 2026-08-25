@@ -1,0 +1,33 @@
+{
+  "id": "table",
+  "title": "The Table",
+  "backgroundImage": "/scenes/table.jpg",
+  "ambientKey": "table",
+  "autoAdvanceMs": 16000,
+  "blocks": [
+    {
+      "id": "enter",
+      "text": "You walk into the room at the end of the hall. Sticks of Egyptian incense are burning on a plate. There is only one black candle burning on the right side of a table. You sit down."
+    },
+    {
+      "id": "presence",
+      "text": "You can only just make out The Fortune Teller is sitting in the darkness at the other side of the table. You have the strange feeling that The Fortune Teller knows everything about you."
+    },
+    {
+      "id": "pennies",
+      "text": "In front of The Fortune Teller is a deck of Tarot cards. You place two pennies on the cold wooden table. The Fortune Teller places one penny on each of its eyes and whispers in a ghostly voice, “Payment for the ferryman.”"
+    },
+    {
+      "id": "teeth",
+      "text": "You see The Fortune Teller’s sharp white teeth catching the light of the candle and wonder if it is not human."
+    },
+    {
+      "id": "twelve",
+      "text": "The Fortune Teller then proceeds to slowly place twelve tarot cards face down on the table in front of you. The backs of the cards are intricate gold and black patterns."
+    },
+    {
+      "id": "whisper",
+      "text": "The Fortune Teller slowly moves its dead white hands, turning each of the twelve Tarot cards face up and whispers in a raspy voice, “Now pick one and let your fate be sealed.”"
+    }
+  ]
+}

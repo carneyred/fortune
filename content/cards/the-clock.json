@@ -1,0 +1,20 @@
+{
+  "id": "the-clock",
+  "title": "The Clock",
+  "number": "VI",
+  "status": "draft",
+  "symbol": "skull",
+  "frontImage": "/cards/the-clock/front.jpg",
+  "backImage": "/cards/shared/back.png",
+  "keywords": ["time", "never"],
+  "vanishEffect": "embers",
+  "stories": [
+    {
+      "id": "awaiting",
+      "status": "draft",
+      "title": "The Clock",
+      "fortuneLine": "",
+      "body": "[awaiting fable]"
+    }
+  ]
+}

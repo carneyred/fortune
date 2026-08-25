@@ -1,0 +1,20 @@
+{
+  "id": "the-palisade",
+  "title": "The Palisade",
+  "number": "V",
+  "status": "published",
+  "symbol": "fence",
+  "frontImage": "/cards/the-palisade/front.jpg",
+  "backImage": "/cards/shared/back.png",
+  "keywords": ["walls", "fear", "enclosure"],
+  "vanishEffect": "fade-grain",
+  "stories": [
+    {
+      "id": "default",
+      "status": "published",
+      "title": "The Palisade",
+      "fortuneLine": "What you wall out, you may wall yourself into.",
+      "body": "A town built a fence to keep the darkness out.\n\nEvery year they added another board, until the fence circled the town thrice.\n\nOne morning they woke to find the cliff beneath them had vanished.\n\nAnd they had built the fence inside the fall."
+    }
+  ]
+}

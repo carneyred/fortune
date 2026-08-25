@@ -1,0 +1,20 @@
+{
+  "id": "the-aviary",
+  "title": "The Aviary",
+  "number": "XII",
+  "status": "published",
+  "symbol": "key",
+  "frontImage": "/cards/the-aviary/front.jpg",
+  "backImage": "/cards/shared/back.png",
+  "keywords": ["capture", "desire", "entrapment"],
+  "vanishEffect": "embers",
+  "stories": [
+    {
+      "id": "default",
+      "status": "published",
+      "title": "The Aviary",
+      "fortuneLine": "What you keep, keeps you.",
+      "body": "The Cat was no carpenter, but a collector of living wonders, strange creatures he could not bear to simply admire.\n\nHe kept jeweled beetles in glass, lizards that dreamt aloud, and birds whose songs made grown men forget their names.\n\nYet one cage in his gallery stayed empty, and it haunted him.\n\nThen came a merchant with no shadow and a voice like wind, offering a golden key.\n\n“This unlocks the final aviary,” he said. “The one that keeps what refuses to be kept.”\n\nThe Cat followed, desire tight in his chest, breath thin with expectation.\n\nAt the world’s edge stood a cage of silver roots and humming crystal.\n\nInside: a single bird, immense and trembling, its wings the color of memory.\n\nHe reached for the lock, already imagining it singing in his gallery.\n\nBut the door opened before his fingers found it.\n\nThe bird unraveled into smoke and vanished upward, leaving behind a sound like distant bells, laughing.\n\nThe Cat turned, and saw the key had turned, but in the door behind him.\n\nIt closed as if it always had.\n\nAnd on certain nights, the wind along the cliffs carries the sound of footsteps, soft, circular, endless, and the whisper:\n\n“This time... it will stay.”"
+    }
+  ]
+}

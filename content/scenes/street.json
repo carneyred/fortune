@@ -1,0 +1,21 @@
+{
+  "id": "street",
+  "title": "The Street",
+  "backgroundImage": "/scenes/street.jpg",
+  "ambientKey": "street",
+  "autoAdvanceMs": 16000,
+  "blocks": [
+    {
+      "id": "lost",
+      "text": "You’re lost amongst the streets of a city you thought you knew. The blistering heat from the sun creates deep dark shadows shrouding the interiors of shops and buildings you pass in darkness."
+    },
+    {
+      "id": "coin",
+      "text": "You pass a homeless man swirling one single coin in a metal can. He leers up at you and says, “Wat ya lookin’ at, honkie tonk?” You continue down the street."
+    },
+    {
+      "id": "shopfront",
+      "text": "You notice a little fortune teller shop to your left. It must be new. You do not remember seeing this place before but feel drawn inside like a magnet. There is something strange about this shop."
+    }
+  ]
+}

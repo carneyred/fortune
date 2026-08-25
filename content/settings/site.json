@@ -1,0 +1,11 @@
+{
+  "title": "Payment for the Ferryman",
+  "tagline": "Payment is required. Not always in coin.",
+  "drawSize": 5,
+  "minPublishedCards": 5,
+  "vanishMode": "mixed",
+  "globalVanishEffect": "embers",
+  "introAutoAdvanceMs": 18000,
+  "storyAdvanceMs": 7000,
+  "avoidRepeatLastCard": true
+}

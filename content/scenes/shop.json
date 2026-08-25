@@ -1,0 +1,21 @@
+{
+  "id": "shop",
+  "title": "The Shop",
+  "backgroundImage": "/scenes/shop.jpg",
+  "ambientKey": "shop",
+  "autoAdvanceMs": 18000,
+  "blocks": [
+    {
+      "id": "desk",
+      "text": "Sitting at an old wooden front desk is an old blind woman with a gypsy headscarf knitting and humming the tune “Für Elise”."
+    },
+    {
+      "id": "fable",
+      "text": "It somehow makes you think of the fable Jack and the Beanstalk, the words “Fe, Fi, Fo, Fum. I smell the blood of an Englishman, Be he alive, or be he dead, I'll grind up his bones to make my bread” echoing in your head."
+    },
+    {
+      "id": "payment",
+      "text": "She asks if you have payment."
+    }
+  ]
+}
