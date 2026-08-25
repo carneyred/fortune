@@ -11,23 +11,33 @@
     },
     {
       "id": "presence",
-      "text": "You can only just make out The Fortune Teller is sitting in the darkness at the other side of the table. You have the strange feeling that The Fortune Teller knows everything about you."
+      "text": "You can only just make out The Fortune Teller is sitting in the darkness at the other side of the table. You have the strange feeling that The Fortune Teller knows everything about you.",
+      "image": "/scenes/fortune-teller.jpg",
+      "imageOpacity": 0.55
     },
     {
       "id": "pennies",
-      "text": "In front of The Fortune Teller is a deck of Tarot cards. You place two pennies on the cold wooden table. The Fortune Teller places one penny on each of its eyes and whispers in a ghostly voice, “Payment for the ferryman.”"
+      "text": "In front of The Fortune Teller is a deck of Tarot cards. You place two pennies on the cold wooden table. The Fortune Teller places one penny on each of its eyes and whispers in a ghostly voice, “Payment for the ferryman.”",
+      "image": "/scenes/fortune-teller.jpg",
+      "imageOpacity": 0.55
     },
     {
       "id": "teeth",
-      "text": "You see The Fortune Teller’s sharp white teeth catching the light of the candle and wonder if it is not human."
+      "text": "You see The Fortune Teller’s sharp white teeth catching the light of the candle and wonder if it is not human.",
+      "image": "/scenes/fortune-teller.jpg",
+      "imageOpacity": 0.55
     },
     {
       "id": "twelve",
-      "text": "The Fortune Teller then proceeds to slowly place twelve tarot cards face down on the table in front of you. The backs of the cards are intricate gold and black patterns."
+      "text": "The Fortune Teller then proceeds to slowly place twelve tarot cards face down on the table in front of you. The backs of the cards are intricate gold and black patterns.",
+      "image": "/scenes/fortune-teller.jpg",
+      "imageOpacity": 0.55
     },
     {
       "id": "whisper",
-      "text": "The Fortune Teller slowly moves its dead white hands, turning each of the twelve Tarot cards face up and whispers in a raspy voice, “Now pick one and let your fate be sealed.”"
+      "text": "The Fortune Teller slowly moves its dead white hands, turning each of the twelve Tarot cards face up and whispers in a raspy voice, “Now pick one and let your fate be sealed.”",
+      "image": "/scenes/fortune-teller.jpg",
+      "imageOpacity": 0.55
     }
   ]
 }

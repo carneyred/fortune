@@ -37,6 +37,8 @@ export function PlayingCard({
 }: PlayingCardProps) {
   const reduced = usePrefersReducedMotion();
   const tilt = [-8, -4, 0, 4, 8][index] ?? 0;
+  const vanishedOpacity =
+    vanishEffect === "fade-grain" ? 0 : vanishEffect === "ash" ? 1 : 0.2;
 
   return (
     <motion.button
@@ -48,14 +50,15 @@ export function PlayingCard({
       aria-label={`${faceUp ? fate.card.title : "Facedown card"} ${index + 1} of 5`}
       aria-pressed={selected}
       className={cn(
-        "playing-card card-glint relative w-[17vw] max-w-[168px] min-w-[92px] origin-bottom border-0 bg-transparent p-0 text-left outline-none",
+        "playing-card relative w-[17vw] max-w-[168px] min-w-[92px] origin-bottom border-0 bg-transparent p-0 text-left outline-none",
         "focus-visible:ring-2 focus-visible:ring-gold/80",
+        !vanished && "card-glint",
         vanished && "pointer-events-none",
       )}
       data-focused={focused}
       initial={{ opacity: 0, y: 28, rotateZ: tilt }}
       animate={{
-        opacity: vanished && vanishEffect === "fade-grain" ? 0 : vanished ? 0.2 : 1,
+        opacity: vanished ? vanishedOpacity : 1,
         y: focused && !selected && !locked ? -28 : selected ? -8 : 0,
         rotateZ: selected ? 0 : focused ? tilt * 0.35 : tilt,
         scale: selected ? 1.06 : focused ? 1.07 : 1,
@@ -73,8 +76,14 @@ export function PlayingCard({
     >
       <motion.div
         className="relative"
-        animate={{ rotateY: faceUp ? 180 : 0 }}
-        transition={{ duration: reduced ? 0.2 : 0.8 }}
+        animate={{
+          rotateY: faceUp ? 180 : 0,
+          opacity: vanished && vanishEffect === "ash" ? 0 : 1,
+        }}
+        transition={{
+          rotateY: { duration: reduced ? 0.2 : 0.8 },
+          opacity: { duration: reduced ? 0.35 : 0.3 },
+        }}
         style={{ transformStyle: "preserve-3d" }}
       >
         <div style={{ backfaceVisibility: "hidden" }}>
@@ -90,6 +99,7 @@ export function PlayingCard({
       <VanishFx
         active={vanished}
         effect={vanishEffect}
+        imageSrc={fate.card.backImage}
         onComplete={onVanishComplete}
       />
     </motion.button>

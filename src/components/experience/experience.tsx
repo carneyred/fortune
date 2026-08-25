@@ -13,6 +13,14 @@ import { IntroStage } from "@/components/experience/intro-stage";
 import { Landing } from "@/components/experience/landing";
 import { PlayingCard } from "@/components/experience/playing-card";
 import { StoryPanel } from "@/components/experience/story-panel";
+import { Button } from "@/components/ui/button";
+import {
+  Dialog,
+  DialogContent,
+  DialogDescription,
+  DialogHeader,
+  DialogTitle,
+} from "@/components/ui/dialog";
 import {
   loadArchive,
   loadLastCardId,
@@ -51,6 +59,7 @@ function ExperienceMachine({ catalog }: { catalog: Catalog }) {
   const [storyCount, setStoryCount] = useState(1);
   const [fortuneRevealed, setFortuneRevealed] = useState(false);
   const [archiveOpen, setArchiveOpen] = useState(false);
+  const [pendingIndex, setPendingIndex] = useState<number | null>(null);
   const [archive, setArchive] = useState<ArchiveEntry[]>(loadArchive);
   const [lastCardId, setLastCardId] = useState<string | null>(loadLastCardId);
   const completedVanishes = useRef(new Set<string>());
@@ -141,9 +150,9 @@ function ExperienceMachine({ catalog }: { catalog: Catalog }) {
     [hand, selectedIndex, startReading],
   );
 
-  const chooseCard = useCallback(
+  const commitCard = useCallback(
     (index: number) => {
-      if (phase !== "draw" || locked || !hand) return;
+      if (!hand) return;
       const fate = hand[index];
       if (!fate) return;
       setLocked(true);
@@ -161,10 +170,37 @@ function ExperienceMachine({ catalog }: { catalog: Catalog }) {
       setVanished(nextVanished);
 
       window.setTimeout(() => setFaceUp(true), 520);
-      window.setTimeout(startReading, 2200);
+      window.setTimeout(startReading, 2600);
     },
-    [hand, locked, phase, playSfx, startReading],
+    [hand, playSfx, startReading],
   );
+
+  const chooseCard = useCallback(
+    (index: number) => {
+      if (phase !== "draw" || locked || !hand || !hand[index]) return;
+      if (Math.random() < 0.3) {
+        setLocked(true);
+        setFocused(index);
+        setPendingIndex(index);
+        playSfx("whisper");
+        return;
+      }
+      commitCard(index);
+    },
+    [commitCard, hand, locked, phase, playSfx],
+  );
+
+  const confirmChoice = useCallback(() => {
+    const index = pendingIndex;
+    setPendingIndex(null);
+    if (index !== null) commitCard(index);
+  }, [commitCard, pendingIndex]);
+
+  const cancelChoice = useCallback(() => {
+    setPendingIndex(null);
+    setLocked(false);
+    playSfx("hover");
+  }, [playSfx]);
 
   const advanceStory = useCallback(() => {
     if (!selected || phase === "aftermath") return;
@@ -340,7 +376,7 @@ function ExperienceMachine({ catalog }: { catalog: Catalog }) {
               focused={focused === index}
               selected={selectedIndex === index}
               vanished={Boolean(vanished[fate.instanceId])}
-              vanishEffect={fate.vanishEffect}
+              vanishEffect="ash"
               faceUp={selectedIndex === index && faceUp}
               locked={locked}
               onHover={() => hoverCard(index)}
@@ -383,6 +419,42 @@ function ExperienceMachine({ catalog }: { catalog: Catalog }) {
           </div>
         </motion.div>
       ) : null}
+
+      <Dialog
+        open={pendingIndex !== null}
+        onOpenChange={(open) => {
+          if (!open) cancelChoice();
+        }}
+      >
+        <DialogContent
+          showCloseButton={false}
+          className="border-[#c4a35a55] bg-[#120d09] p-6 text-[#f3e6c4] sm:max-w-md"
+        >
+          <DialogHeader>
+            <DialogTitle className="font-display text-sm tracking-[0.24em] text-gold uppercase">
+              The Fortune Teller stays your hand
+            </DialogTitle>
+            <DialogDescription className="font-serif pt-1 text-xl text-[#d8c7a4] italic">
+              &ldquo;Are you sure you want this card?&rdquo;
+            </DialogDescription>
+          </DialogHeader>
+          <div className="flex justify-end gap-3 pt-2">
+            <Button
+              variant="outline"
+              onClick={cancelChoice}
+              className="border-[#c4a35a55] bg-transparent font-display text-xs tracking-[0.18em] text-[#d8c7a4] uppercase hover:bg-[#c4a35a1f] hover:text-[#f3e6c4] dark:border-[#c4a35a55] dark:bg-transparent dark:hover:bg-[#c4a35a1f]"
+            >
+              Let me reconsider
+            </Button>
+            <Button
+              onClick={confirmChoice}
+              className="bg-gold font-display text-xs tracking-[0.18em] text-[#140e08] uppercase hover:bg-[#d4b36a]"
+            >
+              I am certain
+            </Button>
+          </div>
+        </DialogContent>
+      </Dialog>
 
       <ArchiveOverlay
         open={archiveOpen}

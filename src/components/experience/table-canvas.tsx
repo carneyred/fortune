@@ -191,6 +191,12 @@ export function TableCanvas({ reveal, intensity = 1 }: TableCanvasProps) {
         <TableScene reveal={reveal} intensity={lowPower ? 0.75 : intensity} />
       </Canvas>
       <div
+        className="absolute inset-0 bg-cover bg-center opacity-30"
+        style={{
+          backgroundImage: `url(${assetPath("/textures/table-surface.jpg")})`,
+        }}
+      />
+      <div
         className="absolute inset-0 bg-cover bg-center opacity-35 mix-blend-multiply"
         style={{ backgroundImage: `url(${assetPath("/textures/table-wood.jpg")})` }}
       />

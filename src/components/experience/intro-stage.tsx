@@ -28,6 +28,25 @@ export function IntroStage({ scene, blockIndex, onContinue }: IntroStageProps) {
         animate={{ scale: 1.12, opacity: 1 }}
         transition={{ duration: 8, ease: "linear" }}
       />
+      <AnimatePresence>
+        {block?.image ? (
+          <motion.div
+            key={block.image}
+            className="absolute inset-0 bg-cover bg-center"
+            style={{
+              // Opaque scrim over the art keeps it faint without the scene
+              // behind bleeding through.
+              backgroundImage: `linear-gradient(rgba(7, 5, 4, ${
+                1 - (block.imageOpacity ?? 0.35)
+              }), rgba(7, 5, 4, ${1 - (block.imageOpacity ?? 0.35)})), url(${block.image})`,
+            }}
+            initial={{ opacity: 0 }}
+            animate={{ opacity: 1 }}
+            exit={{ opacity: 0 }}
+            transition={{ duration: 1.6, ease: "easeInOut" }}
+          />
+        ) : null}
+      </AnimatePresence>
       <div className="absolute inset-0 bg-linear-to-t from-black via-black/55 to-black/25" />
       <div className="relative z-10 mx-auto w-full max-w-3xl px-6 pb-20 sm:pb-24">
         <p className="font-display mb-4 text-[0.68rem] tracking-[0.42em] text-gold uppercase">

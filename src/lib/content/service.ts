@@ -149,6 +149,14 @@ function loadScenes(): SceneRecord[] {
         return {
           id: assertString(block.id, `${id}.blocks[${index}].id`),
           text: assertString(block.text, `${id}.blocks[${index}].text`),
+          image:
+            typeof block.image === "string" && block.image.trim() !== ""
+              ? assetPath(block.image)
+              : undefined,
+          imageOpacity:
+            typeof block.imageOpacity === "number"
+              ? block.imageOpacity
+              : undefined,
         };
       }),
     };

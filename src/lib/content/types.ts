@@ -13,6 +13,7 @@ export const VANISH_EFFECTS = [
   "flash-fire",
   "embers",
   "fade-grain",
+  "ash",
 ] as const;
 
 export type VanishEffect = (typeof VANISH_EFFECTS)[number];
@@ -50,6 +51,8 @@ export type CardRecord = {
 export type SceneBlock = {
   id: string;
   text: string;
+  image?: string;
+  imageOpacity?: number;
 };
 
 export type SceneRecord = {

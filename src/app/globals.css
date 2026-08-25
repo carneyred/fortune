@@ -141,10 +141,6 @@
   position: relative;
   aspect-ratio: 3 / 5;
   overflow: hidden;
-  background: #140e08;
-  box-shadow:
-    0 18px 40px #000c,
-    0 0 0 1px #c4a35a33;
 }
 
 .card-art {

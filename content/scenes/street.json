@@ -15,7 +15,9 @@
     },
     {
       "id": "shopfront",
-      "text": "You notice a little fortune teller shop to your left. It must be new. You do not remember seeing this place before but feel drawn inside like a magnet. There is something strange about this shop."
+      "text": "You notice a little fortune teller shop to your left. It must be new. You do not remember seeing this place before but feel drawn inside like a magnet. There is something strange about this shop.",
+      "image": "/scenes/shopfront.jpg",
+      "imageOpacity": 0.35
     }
   ]
 }
