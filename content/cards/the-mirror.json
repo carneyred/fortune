@@ -1,0 +1,20 @@
+{
+  "id": "the-mirror",
+  "title": "The Mirror",
+  "number": "XVI",
+  "status": "published",
+  "symbol": "glass",
+  "frontImage": "/cards/the-mirror/front.png",
+  "backImage": "/cards/shared/back.png",
+  "keywords": ["reflection", "absence", "honesty"],
+  "vanishEffect": "fade-grain",
+  "stories": [
+    {
+      "id": "default",
+      "status": "published",
+      "title": "The Room That Did Not Keep Her",
+      "fortuneLine": "The glass has started leaving you out, and one evening you will side with the glass.",
+      "body": "A woman owned a mirror that had come with the house, too tall for any wall but the one it chose.\n\nIt was honest about the room. The window, the door, the nine floorboards. It was honest, and she checked it each evening by candlelight the way other people lock doors.\n\nOne evening the mirror showed the window, the door, the nine floorboards, and no one standing where she stood.\n\nShe raised her hand. The candle in the glass burned unattended.\n\nShe was not frightened at first. She was embarrassed, the way one is embarrassed to arrive at a party on the wrong night.\n\nShe checked the glass each evening after that. Some evenings she was in it, and some evenings the room preferred itself empty.\n\nShe began to keep a diary of which evenings were which, and stopped when she noticed the entries were not in her handwriting on the empty nights.\n\nThe mirror was not lying on those evenings. That was the trouble.\n\nIt had simply begun to reflect the room as it would soon be, and was waiting, patiently, for her to agree.\n\nThe house had always been honest with her.\n\nShe had only mistaken which of them was passing through."
+    }
+  ]
+}

@@ -1,0 +1,20 @@
+{
+  "id": "the-lantern",
+  "title": "The Lantern",
+  "number": "XV",
+  "status": "published",
+  "symbol": "wick",
+  "frontImage": "/cards/the-lantern/front.png",
+  "backImage": "/cards/shared/back.png",
+  "keywords": ["path", "dark", "watchers"],
+  "vanishEffect": "flash-fire",
+  "stories": [
+    {
+      "id": "default",
+      "status": "published",
+      "title": "The Circle of Light",
+      "fortuneLine": "Your light does not push back the dark; it only tells the dark where you are.",
+      "body": "A child was given a lantern and one instruction: the light does not show you the way. It shows the way you.\n\nThe child walked the forest path at dusk, holding the lantern high, and the trees stepped politely back from the glow.\n\nBeyond the glow, the dark arranged itself. Eyes opened at the height of wolves, and higher.\n\nThe child learned the rule of the road quickly: whatever the light touched stayed a tree. Whatever it did not touch could be anything it liked.\n\nSo the child walked in the middle of a small, obedient world, twelve feet wide, that traveled with them like a room.\n\nYears passed on that path. The child grew; the wick burned down.\n\nThe circle of light drew in a little each winter, the way a coat shrinks that is really a body growing old.\n\nAt the end it lit only a hand, then only a knuckle, then only the memory of a flame that the dark, out of an old courtesy, went on stepping back from.\n\nThe eyes never came closer. That was the mercy.\n\nThey only waited, patient as an unlit house, for the door to finish closing."
+    }
+  ]
+}

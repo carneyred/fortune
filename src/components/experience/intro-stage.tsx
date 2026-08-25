@@ -7,10 +7,23 @@ import type { SceneRecord } from "@/lib/content/types";
 type IntroStageProps = {
   scene: SceneRecord;
   blockIndex: number;
+  continueReady: boolean;
   onContinue: () => void;
 };
 
-export function IntroStage({ scene, blockIndex, onContinue }: IntroStageProps) {
+// The corridor door sits at roughly (50%, 42%) of the image; the base layer
+// zooms toward it while a feather-masked copy of the same image scales less,
+// so the door appears to recede as the hall stretches.
+const CORRIDOR_ORIGIN = "50% 42%";
+const CORRIDOR_DOOR_MASK =
+  "radial-gradient(ellipse 13% 24% at 50% 42%, #000 55%, transparent 100%)";
+
+export function IntroStage({
+  scene,
+  blockIndex,
+  continueReady,
+  onContinue,
+}: IntroStageProps) {
   const block = scene.blocks[blockIndex];
 
   return (
@@ -20,14 +33,47 @@ export function IntroStage({ scene, blockIndex, onContinue }: IntroStageProps) {
       onClick={onContinue}
       aria-label="Continue the telling"
     >
-      <motion.div
-        key={scene.id}
-        className="absolute inset-0 bg-cover bg-center"
-        style={{ backgroundImage: `url(${scene.backgroundImage})` }}
-        initial={{ scale: 1.06, opacity: 0 }}
-        animate={{ scale: 1.12, opacity: 1 }}
-        transition={{ duration: 8, ease: "linear" }}
-      />
+      {scene.id === "corridor" ? (
+        <motion.div
+          key={scene.id}
+          className="absolute inset-0"
+          initial={{ opacity: 0 }}
+          animate={{ opacity: 1 }}
+          transition={{ duration: 4 }}
+        >
+          <motion.div
+            className="absolute inset-0 bg-cover bg-center"
+            style={{
+              backgroundImage: `url(${scene.backgroundImage})`,
+              transformOrigin: CORRIDOR_ORIGIN,
+            }}
+            initial={{ scale: 1.02 }}
+            animate={{ scale: 1.5 }}
+            transition={{ duration: 36, ease: "linear" }}
+          />
+          <motion.div
+            className="absolute inset-0 bg-cover bg-center"
+            style={{
+              backgroundImage: `url(${scene.backgroundImage})`,
+              transformOrigin: CORRIDOR_ORIGIN,
+              WebkitMaskImage: CORRIDOR_DOOR_MASK,
+              maskImage: CORRIDOR_DOOR_MASK,
+            }}
+            initial={{ scale: 1.02 }}
+            animate={{ scale: 1.22 }}
+            transition={{ duration: 36, ease: "linear" }}
+          />
+        </motion.div>
+      ) : (
+        <motion.div
+          key={scene.id}
+          className="absolute inset-0 bg-cover bg-center"
+          style={{ backgroundImage: `url(${scene.backgroundImage})` }}
+          initial={{ scale: 1.06, opacity: 0 }}
+          animate={{ scale: 1.12, opacity: 1 }}
+          transition={{ duration: 8, ease: "linear" }}
+        />
+      )}
       <AnimatePresence>
         {block?.image ? (
           <motion.div
@@ -64,9 +110,13 @@ export function IntroStage({ scene, blockIndex, onContinue }: IntroStageProps) {
             {block?.text}
           </motion.p>
         </AnimatePresence>
-        <p className="mt-8 text-xs tracking-[0.28em] text-[#9a8b7a] uppercase">
+        <motion.p
+          className="mt-8 text-xs tracking-[0.28em] text-[#9a8b7a] uppercase"
+          animate={{ opacity: continueReady ? 1 : 0.15 }}
+          transition={{ duration: 0.6 }}
+        >
           Continue
-        </p>
+        </motion.p>
       </div>
     </button>
   );

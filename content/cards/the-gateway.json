@@ -1,0 +1,20 @@
+{
+  "id": "the-gateway",
+  "title": "The Gateway",
+  "number": "XIV",
+  "status": "published",
+  "symbol": "arch",
+  "frontImage": "/cards/the-gateway/front.png",
+  "backImage": "/cards/shared/back.png",
+  "keywords": ["threshold", "eclipse", "return"],
+  "vanishEffect": "embers",
+  "stories": [
+    {
+      "id": "default",
+      "status": "published",
+      "title": "The Arch That Kept Standing",
+      "fortuneLine": "You walked through something long ago, and every road since has been its threshold.",
+      "body": "Where a city had been, an arch remained.\n\nTravelers crossing the waste were told: go around it. It is farther, and you will arrive older, but go around.\n\nA young man, proud of his boots, walked through. It was only stone, and the stone held only sky.\n\nNothing on the other side was different. The same waste. The same road. He laughed at the old warnings and went on toward the sea.\n\nBut the sun over his head never quite finished rising after that. It hung with a ring of fire at its edge, like a thing eclipsed, though no one else could see the darkness in it.\n\nAnd every road he took, however straight, bent slowly back toward the arch.\n\nHe arrived at it again at the end of each year, footsore, certain he had been walking away. The eye cut into the keystone was always the first thing over the horizon.\n\nThe last time, he did not turn around. He sat down in the shadow of the arch and waited to be let through in the direction he had truly been traveling all his life.\n\nThe arch does not open onto places.\n\nIt opens onto returns."
+    }
+  ]
+}

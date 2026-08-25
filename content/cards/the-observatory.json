@@ -1,0 +1,20 @@
+{
+  "id": "the-observatory",
+  "title": "The Observatory",
+  "number": "XVII",
+  "status": "published",
+  "symbol": "lens",
+  "frontImage": "/cards/the-observatory/front.png",
+  "backImage": "/cards/shared/back.png",
+  "keywords": ["distance", "signal", "patience"],
+  "vanishEffect": "dust",
+  "stories": [
+    {
+      "id": "default",
+      "status": "published",
+      "title": "The Star That Answered",
+      "fortuneLine": "What you have watched so long has finished its notes on you.",
+      "body": "On a hill above the tree line stood an observatory with one astronomer left in it.\n\nEach night he opened the dome and aimed the telescope at a star that spiraled where other stars stood still.\n\nHis notebooks said the star was approaching. His notebooks had said so for forty years.\n\nHe wrote to the learned societies. The learned societies stopped writing back, so he wrote to the star instead, long unsent letters about the cold of the stairwell and the lamps of the village going out one by one below.\n\nOne night, through the eyepiece, the spiral blinked.\n\nNot dimmed. Blinked. The way an eye does when it has been staring too long and remembers itself.\n\nHe understood then what the spiral was: not a star drawing nearer, but a pupil drawing focus.\n\nThe telescope had been pointing in the wrong direction. It always had been.\n\nFrom the cold rim of that turning light, something had spent forty patient years observing the observer, keeping its own notebooks, writing its own unsent letters.\n\nAnd on the hill each night thereafter, the dome stood open like a held breath, because it is rude to look away first."
+    }
+  ]
+}

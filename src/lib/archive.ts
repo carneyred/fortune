@@ -45,3 +45,42 @@ export function loadLastCardId(): string | null {
 export function persistLastCardId(cardId: string) {
   window.localStorage.setItem(LAST_CARD_STORAGE_KEY, cardId);
 }
+
+export const READING_LOCK_STORAGE_KEY = "ferryman.readingLock.v1";
+export const READING_LOCK_MS = 24 * 60 * 60 * 1000;
+
+export type ReadingLock = {
+  cardId: string;
+  storyId: string;
+  at: number;
+};
+
+export function loadReadingLock(): ReadingLock | null {
+  if (typeof window === "undefined") return null;
+  try {
+    const raw = window.localStorage.getItem(READING_LOCK_STORAGE_KEY);
+    if (!raw) return null;
+    const parsed = JSON.parse(raw) as ReadingLock;
+    if (typeof parsed?.cardId !== "string" || typeof parsed?.at !== "number") {
+      return null;
+    }
+    if (Date.now() - parsed.at >= READING_LOCK_MS) {
+      window.localStorage.removeItem(READING_LOCK_STORAGE_KEY);
+      return null;
+    }
+    return parsed;
+  } catch {
+    return null;
+  }
+}
+
+export function persistReadingLock(cardId: string, storyId: string): ReadingLock {
+  const lock: ReadingLock = { cardId, storyId, at: Date.now() };
+  window.localStorage.setItem(READING_LOCK_STORAGE_KEY, JSON.stringify(lock));
+  return lock;
+}
+
+export function clearReadingLock() {
+  if (typeof window === "undefined") return;
+  window.localStorage.removeItem(READING_LOCK_STORAGE_KEY);
+}

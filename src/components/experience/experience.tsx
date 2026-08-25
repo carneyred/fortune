@@ -12,6 +12,7 @@ import { InsufficientFates } from "@/components/experience/insufficient-fates";
 import { IntroStage } from "@/components/experience/intro-stage";
 import { Landing } from "@/components/experience/landing";
 import { PlayingCard } from "@/components/experience/playing-card";
+import { ReturnVisit } from "@/components/experience/return-visit";
 import { StoryPanel } from "@/components/experience/story-panel";
 import { Button } from "@/components/ui/button";
 import {
@@ -22,10 +23,14 @@ import {
   DialogTitle,
 } from "@/components/ui/dialog";
 import {
+  clearReadingLock,
   loadArchive,
   loadLastCardId,
+  loadReadingLock,
   persistLastCardId,
+  persistReadingLock,
   rememberFate,
+  type ReadingLock,
 } from "@/lib/archive";
 import { AUDIO_BEDS, type BedKey } from "@/lib/audio/beds";
 import { drawHand, hasEnoughFates, splitStory } from "@/lib/content/draw";
@@ -43,7 +48,13 @@ type Phase =
   | "draw"
   | "reveal"
   | "aftermath"
-  | "insufficient";
+  | "insufficient"
+  | "returned";
+
+// Readers must sit with each intro block before CONTINUE responds; the
+// backtick key (testing) bypasses every gate.
+const INTRO_CONTINUE_WAIT_MS = 2600;
+const STORY_CONTINUE_WAIT_MS = 1500;
 
 function ExperienceMachine({ catalog }: { catalog: Catalog }) {
   const { unlock, playBed, playSfx } = useRitualAudio();
@@ -60,6 +71,10 @@ function ExperienceMachine({ catalog }: { catalog: Catalog }) {
   const [fortuneRevealed, setFortuneRevealed] = useState(false);
   const [archiveOpen, setArchiveOpen] = useState(false);
   const [pendingIndex, setPendingIndex] = useState<number | null>(null);
+  const [readingLock, setReadingLock] = useState<ReadingLock | null>(null);
+  const [continueReady, setContinueReady] = useState(false);
+  const introGateRef = useRef(0);
+  const storyGateRef = useRef(0);
   const [archive, setArchive] = useState<ArchiveEntry[]>(loadArchive);
   const [lastCardId, setLastCardId] = useState<string | null>(loadLastCardId);
   const completedVanishes = useRef(new Set<string>());
@@ -82,6 +97,14 @@ function ExperienceMachine({ catalog }: { catalog: Catalog }) {
   }, [phase, playBed, scene]);
 
   const beginDraw = useCallback(() => {
+    const lock = loadReadingLock();
+    if (lock && catalog.cards.some((card) => card.id === lock.cardId)) {
+      setReadingLock(lock);
+      setPhase("returned");
+      playBed(null);
+      return;
+    }
+    if (lock) clearReadingLock();
     if (!hasEnoughFates(catalog)) {
       setPhase("insufficient");
       playBed("table");
@@ -102,8 +125,9 @@ function ExperienceMachine({ catalog }: { catalog: Catalog }) {
     playSfx("whisper");
   }, [catalog, lastCardId, playBed, playSfx]);
 
-  const continueIntro = useCallback(() => {
+  const continueIntro = useCallback((force = false) => {
     if (!scene) return;
+    if (!force && Date.now() < introGateRef.current) return;
     playSfx("continue");
     if (blockIndex < scene.blocks.length - 1) {
       setBlockIndex((value) => value + 1);
@@ -118,9 +142,20 @@ function ExperienceMachine({ catalog }: { catalog: Catalog }) {
   }, [beginDraw, blockIndex, catalog.scenes.length, playSfx, scene, sceneIndex]);
 
   useEffect(() => {
+    if (phase !== "intro") return;
+    introGateRef.current = Date.now() + INTRO_CONTINUE_WAIT_MS;
+    setContinueReady(false);
+    const timer = window.setTimeout(
+      () => setContinueReady(true),
+      INTRO_CONTINUE_WAIT_MS,
+    );
+    return () => window.clearTimeout(timer);
+  }, [phase, sceneIndex, blockIndex]);
+
+  useEffect(() => {
     if (phase !== "intro" || archiveOpen) return;
     const ms = scene?.autoAdvanceMs ?? catalog.settings.introAutoAdvanceMs;
-    const timer = window.setTimeout(continueIntro, ms);
+    const timer = window.setTimeout(() => continueIntro(true), ms);
     return () => window.clearTimeout(timer);
   }, [
     archiveOpen,
@@ -134,6 +169,7 @@ function ExperienceMachine({ catalog }: { catalog: Catalog }) {
 
   const startReading = useCallback(() => {
     if (!selected) return;
+    storyGateRef.current = Date.now() + STORY_CONTINUE_WAIT_MS;
     setPhase("reveal");
     setStoryCount(1);
     setFortuneRevealed(false);
@@ -162,6 +198,7 @@ function ExperienceMachine({ catalog }: { catalog: Catalog }) {
       persistLastCardId(fate.card.id);
       setLastCardId(fate.card.id);
       setArchive(rememberFate(fate.card.id, fate.story.id));
+      setReadingLock(persistReadingLock(fate.card.id, fate.story.id));
 
       const nextVanished: Record<string, boolean> = {};
       hand.forEach((item, itemIndex) => {
@@ -202,8 +239,10 @@ function ExperienceMachine({ catalog }: { catalog: Catalog }) {
     playSfx("hover");
   }, [playSfx]);
 
-  const advanceStory = useCallback(() => {
+  const advanceStory = useCallback((force = false) => {
     if (!selected || phase === "aftermath") return;
+    if (!force && Date.now() < storyGateRef.current) return;
+    storyGateRef.current = Date.now() + STORY_CONTINUE_WAIT_MS;
     const parts = splitStory(selected.story.body);
     if (storyCount < parts.length) {
       setStoryCount((value) => value + 1);
@@ -237,6 +276,13 @@ function ExperienceMachine({ catalog }: { catalog: Catalog }) {
   const enter = useCallback(() => {
     unlock();
     playSfx("continue");
+    const lock = loadReadingLock();
+    if (lock && catalog.cards.some((card) => card.id === lock.cardId)) {
+      setReadingLock(lock);
+      setPhase("returned");
+      return;
+    }
+    if (lock) clearReadingLock();
     if (!hasEnoughFates(catalog)) {
       setPhase("insufficient");
       return;
@@ -267,6 +313,24 @@ function ExperienceMachine({ catalog }: { catalog: Catalog }) {
     const onKey = (event: KeyboardEvent) => {
       if (archiveOpen && event.key === "Escape") {
         setArchiveOpen(false);
+        return;
+      }
+      // Backtick: testing skip — advances the current step, bypassing waits.
+      if (event.key === "`") {
+        event.preventDefault();
+        if (phase === "landing") enter();
+        else if (phase === "intro") continueIntro(true);
+        else if (phase === "reveal") advanceStory(true);
+        else if (phase === "returned") returnHome();
+        return;
+      }
+      // Tilde: testing reset — clears the 24-hour reading lock.
+      if (event.key === "~") {
+        event.preventDefault();
+        clearReadingLock();
+        setReadingLock(null);
+        console.info("[ferryman] reading lock cleared");
+        if (phase === "returned") returnHome();
         return;
       }
       if (event.key === "m" || event.key === "M") return;
@@ -323,12 +387,26 @@ function ExperienceMachine({ catalog }: { catalog: Catalog }) {
     locked,
     phase,
     playSfx,
+    returnHome,
   ]);
 
   const paragraphs = useMemo(
     () => (selected ? splitStory(selected.story.body).length : 0),
     [selected],
   );
+
+  const returnedCard = useMemo(() => {
+    if (!readingLock) return null;
+    return catalog.cards.find((card) => card.id === readingLock.cardId) ?? null;
+  }, [catalog, readingLock]);
+  const returnedStory = useMemo(() => {
+    if (!returnedCard || !readingLock) return null;
+    return (
+      returnedCard.stories.find((story) => story.id === readingLock.storyId) ??
+      returnedCard.stories[0] ??
+      null
+    );
+  }, [readingLock, returnedCard]);
 
   return (
     <div className="relative h-dvh w-full overflow-hidden bg-[#070504]">
@@ -361,7 +439,16 @@ function ExperienceMachine({ catalog }: { catalog: Catalog }) {
             key={scene.id}
             scene={scene}
             blockIndex={blockIndex}
-            onContinue={continueIntro}
+            continueReady={continueReady}
+            onContinue={() => continueIntro()}
+          />
+        ) : null}
+        {phase === "returned" && returnedCard ? (
+          <ReturnVisit
+            key="returned"
+            card={returnedCard}
+            story={returnedStory}
+            onReturn={returnHome}
           />
         ) : null}
       </AnimatePresence>
@@ -405,11 +492,12 @@ function ExperienceMachine({ catalog }: { catalog: Catalog }) {
                 fate={selected}
                 visibleCount={storyCount}
                 fortuneRevealed={fortuneRevealed}
-                onAdvance={advanceStory}
+                onAdvance={() => advanceStory()}
               />
               {phase === "aftermath" ||
               (fortuneRevealed && storyCount >= paragraphs) ? (
                 <AftermathBar
+                  canDrawAgain={!readingLock}
                   onDrawAgain={beginDraw}
                   onReturn={returnHome}
                   onArchive={() => setArchiveOpen(true)}

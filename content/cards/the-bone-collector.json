@@ -1,0 +1,20 @@
+{
+  "id": "the-bone-collector",
+  "title": "The Bone Collector",
+  "number": "XIII",
+  "status": "published",
+  "symbol": "bone",
+  "frontImage": "/cards/the-bone-collector/front.png",
+  "backImage": "/cards/shared/back.png",
+  "keywords": ["gleaning", "names", "debt"],
+  "vanishEffect": "dust",
+  "stories": [
+    {
+      "id": "default",
+      "status": "published",
+      "title": "What the Ground Returns",
+      "fortuneLine": "What you keep of the dead is a ledger, and one line in it has always been yours.",
+      "body": "An old man kept the graveyard of a town that had stopped burying its dead.\n\nStill he went out at night with his basket, and the ground gave him bones the way an orchard gives windfall.\n\nHe did not take them to sell. He took them because each one had a name, and the names were being forgotten faster than the stones could hold them.\n\nHe knew the shin of the ferrier’s daughter. He knew the knuckle of the man who lied about the weather. He carried them home and laid them in rows and said the names over them, one by one, like a man counting money he does not intend to spend.\n\nThe moon watched him do it the way an eye watches through a keyhole.\n\nOne night the basket came up heavier than the ground had any right to give.\n\nAt the bottom, beneath the shins and the knuckles, lay a bone he could not name.\n\nHe turned it in the moonlight. It was warm.\n\nHe understood slowly, the way cold comes through a coat, that the collection had never been his.\n\nHe was the basket."
+    }
+  ]
+}
