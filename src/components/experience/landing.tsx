@@ -3,6 +3,7 @@
 import { motion } from "framer-motion";
 
 import { Button } from "@/components/ui/button";
+import { assetPath } from "@/lib/asset-path";
 
 type LandingProps = {
   title: string;
@@ -20,7 +21,7 @@ export function Landing({ title, tagline, onEnter }: LandingProps) {
     >
       <div
         className="absolute inset-0 bg-cover bg-center opacity-35"
-        style={{ backgroundImage: "url(/scenes/street.jpg)" }}
+        style={{ backgroundImage: `url(${assetPath("/scenes/street.jpg")})` }}
       />
       <div className="absolute inset-0 bg-black/55" />
       <div className="relative z-10 flex flex-col items-center">

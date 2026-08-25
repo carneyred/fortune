@@ -2,6 +2,7 @@
 
 import { useState } from "react";
 
+import { assetPath } from "@/lib/asset-path";
 import { cn } from "@/lib/utils";
 
 type CardFrameProps = {
@@ -19,7 +20,7 @@ export function CardFrame({ src, alt, className }: CardFrameProps) {
       {/* Local framed art; unoptimized so 2:3 letterboxing stays exact. */}
       {/* eslint-disable-next-line @next/next/no-img-element */}
       <img
-        src={failed ? "/cards/shared/missing.jpg" : src}
+        src={failed ? assetPath("/cards/shared/missing.jpg") : src}
         alt={alt}
         className="card-art"
         draggable={false}

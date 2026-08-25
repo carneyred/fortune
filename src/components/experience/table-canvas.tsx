@@ -5,6 +5,7 @@ import { useMemo, useRef } from "react";
 import * as THREE from "three";
 
 import { useLowPower, usePrefersReducedMotion } from "@/hooks/use-prefers";
+import { assetPath } from "@/lib/asset-path";
 
 type TableCanvasProps = {
   reveal: boolean;
@@ -191,7 +192,7 @@ export function TableCanvas({ reveal, intensity = 1 }: TableCanvasProps) {
       </Canvas>
       <div
         className="absolute inset-0 bg-cover bg-center opacity-35 mix-blend-multiply"
-        style={{ backgroundImage: "url(/textures/table-wood.jpg)" }}
+        style={{ backgroundImage: `url(${assetPath("/textures/table-wood.jpg")})` }}
       />
     </div>
   );

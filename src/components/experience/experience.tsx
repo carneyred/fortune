@@ -67,7 +67,7 @@ function ExperienceMachine({ catalog }: { catalog: Catalog }) {
     if (phase === "landing") playBed(null);
     else if (phase === "intro" && scene && scene.ambientKey in AUDIO_BEDS) {
       playBed(scene.ambientKey as BedKey);
-    } else if (phase !== "landing") {
+    } else {
       playBed("table");
     }
   }, [phase, playBed, scene]);

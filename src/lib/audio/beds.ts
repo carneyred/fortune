@@ -1,15 +1,17 @@
+import { assetPath } from "@/lib/asset-path";
+
 export const AUDIO_BEDS = {
-  street: "/audio/beds/street.wav",
-  shop: "/audio/beds/shop.wav",
-  corridor: "/audio/beds/corridor.wav",
-  table: "/audio/beds/table.wav",
+  street: assetPath("/audio/beds/street.wav"),
+  shop: assetPath("/audio/beds/shop.wav"),
+  corridor: assetPath("/audio/beds/corridor.wav"),
+  table: assetPath("/audio/beds/table.wav"),
 } as const;
 
 export const AUDIO_SFX = {
-  hover: "/audio/sfx/hover.wav",
-  select: "/audio/sfx/select.wav",
-  whisper: "/audio/sfx/whisper.wav",
-  continue: "/audio/sfx/continue.wav",
+  hover: assetPath("/audio/sfx/hover.wav"),
+  select: assetPath("/audio/sfx/select.wav"),
+  whisper: assetPath("/audio/sfx/whisper.wav"),
+  continue: assetPath("/audio/sfx/continue.wav"),
 } as const;
 
 export type BedKey = keyof typeof AUDIO_BEDS;

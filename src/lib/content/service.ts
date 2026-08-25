@@ -3,6 +3,8 @@ import "server-only";
 import { readdirSync, readFileSync } from "node:fs";
 import path from "node:path";
 
+import { assetPath } from "@/lib/asset-path";
+
 import {
   CONTENT_STATUSES,
   VANISH_EFFECTS,
@@ -111,8 +113,8 @@ function loadCards(): CardRecord[] {
       number: assertString(data.number, `${id}.number`),
       status: isStatus(data.status) ? data.status : "draft",
       symbol: assertString(data.symbol, `${id}.symbol`),
-      frontImage: assertString(data.frontImage, `${id}.frontImage`),
-      backImage: assertString(data.backImage, `${id}.backImage`),
+      frontImage: assetPath(assertString(data.frontImage, `${id}.frontImage`)),
+      backImage: assetPath(assertString(data.backImage, `${id}.backImage`)),
       stories: loadStories(data.stories, id),
       keywords: Array.isArray(data.keywords)
         ? data.keywords.filter((item): item is string => typeof item === "string")
@@ -136,7 +138,9 @@ function loadScenes(): SceneRecord[] {
     return {
       id,
       title: assertString(data.title, `${id}.title`),
-      backgroundImage: assertString(data.backgroundImage, `${id}.backgroundImage`),
+      backgroundImage: assetPath(
+        assertString(data.backgroundImage, `${id}.backgroundImage`),
+      ),
       ambientKey: assertString(data.ambientKey, `${id}.ambientKey`),
       autoAdvanceMs:
         typeof data.autoAdvanceMs === "number" ? data.autoAdvanceMs : 16000,
