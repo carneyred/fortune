@@ -29,13 +29,13 @@
     },
     {
       "id": "twelve",
-      "text": "The Fortune Teller then proceeds to slowly place twelve tarot cards face down on the table in front of you. The backs of the cards are intricate gold and black patterns.",
+      "text": "The Fortune Teller then proceeds to slowly place five tarot cards face down on the table in front of you. The backs of the cards are intricate gold and black patterns.",
       "image": "/scenes/fortune-teller.jpg",
       "imageOpacity": 0.55
     },
     {
       "id": "whisper",
-      "text": "The Fortune Teller slowly moves its dead white hands, turning each of the twelve Tarot cards face up and whispers in a raspy voice, “Now pick one and let your fate be sealed.”",
+      "text": "The Fortune Teller slowly moves its dead white hands, gesturing over the five Tarot cards, and whispers in a raspy voice, “Now pick one and let your fate be sealed.”",
       "image": "/scenes/fortune-teller.jpg",
       "imageOpacity": 0.55
     }
