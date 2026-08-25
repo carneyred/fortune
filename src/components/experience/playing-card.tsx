@@ -52,7 +52,6 @@ export function PlayingCard({
       className={cn(
         "playing-card relative w-[17vw] max-w-[168px] min-w-[92px] origin-bottom border-0 bg-transparent p-0 text-left outline-none",
         "focus-visible:ring-2 focus-visible:ring-gold/80",
-        !vanished && "card-glint",
         vanished && "pointer-events-none",
       )}
       data-focused={focused}
