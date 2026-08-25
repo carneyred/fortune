@@ -48,7 +48,7 @@ export function PlayingCard({
       aria-label={`${faceUp ? fate.card.title : "Facedown card"} ${index + 1} of 5`}
       aria-pressed={selected}
       className={cn(
-        "card-glint relative w-[17vw] max-w-[168px] min-w-[92px] origin-bottom border-0 bg-transparent p-0 text-left outline-none",
+        "playing-card card-glint relative w-[17vw] max-w-[168px] min-w-[92px] origin-bottom border-0 bg-transparent p-0 text-left outline-none",
         "focus-visible:ring-2 focus-visible:ring-gold/80",
         vanished && "pointer-events-none",
       )}
@@ -56,9 +56,9 @@ export function PlayingCard({
       initial={{ opacity: 0, y: 28, rotateZ: tilt }}
       animate={{
         opacity: vanished && vanishEffect === "fade-grain" ? 0 : vanished ? 0.2 : 1,
-        y: focused && !selected && !locked ? -16 : selected ? -8 : 0,
-        rotateZ: selected ? 0 : tilt,
-        scale: selected ? 1.06 : focused ? 1.03 : 1,
+        y: focused && !selected && !locked ? -28 : selected ? -8 : 0,
+        rotateZ: selected ? 0 : focused ? tilt * 0.35 : tilt,
+        scale: selected ? 1.06 : focused ? 1.07 : 1,
         filter:
           vanished && vanishEffect === "fade-grain"
             ? "contrast(0.6) brightness(0.35)"

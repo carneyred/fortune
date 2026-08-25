@@ -202,8 +202,28 @@
     inset 0 0 40px #c4a05a33;
 }
 
-.candle-flicker {
-  animation: flicker 1.8s ease-in-out infinite;
+.candle-glow {
+  pointer-events: none;
+  position: absolute;
+  inset: 0;
+  background:
+    radial-gradient(ellipse at 92% 12%, rgba(255, 176, 102, 0.28), transparent 46%),
+    radial-gradient(ellipse at 8% 88%, rgba(255, 176, 102, 0.08), transparent 40%);
+  mix-blend-mode: multiply;
+  animation: candle-glow 1.8s ease-in-out infinite;
+}
+
+.playing-card {
+  transition: box-shadow 0.25s ease;
+}
+
+.playing-card:hover:not(:disabled),
+.playing-card[data-focused="true"] {
+  z-index: 3;
+  box-shadow:
+    0 22px 36px #000000cc,
+    0 0 0 1px #c4a35a99,
+    0 0 28px #c4a35a44;
 }
 
 .fortune-line {
@@ -239,26 +259,23 @@
   }
 }
 
-@keyframes flicker {
+@keyframes candle-glow {
   0%,
   100% {
-    opacity: 0.72;
-    filter: blur(10px);
+    opacity: 0.55;
   }
   40% {
-    opacity: 1;
-    filter: blur(7px);
+    opacity: 0.95;
   }
   70% {
-    opacity: 0.8;
-    filter: blur(12px);
+    opacity: 0.7;
   }
 }
 
 @media (prefers-reduced-motion: reduce) {
   .grain,
   .card-glint::after,
-  .candle-flicker {
+  .candle-glow {
     animation: none;
   }
 }

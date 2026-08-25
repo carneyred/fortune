@@ -25,16 +25,17 @@ export function StoryPanel({
     <button
       type="button"
       onClick={onAdvance}
-      className="parchment candle-flicker relative max-h-[78vh] w-full overflow-y-auto px-6 py-7 text-left sm:px-8"
+      className="parchment relative max-h-[78vh] w-full overflow-y-auto px-6 py-7 text-left sm:px-8"
       aria-label="Advance the fable"
     >
-      <p className="font-display text-[0.68rem] tracking-[0.38em] text-[#7a1f12] uppercase">
+      <span className="candle-glow" aria-hidden />
+      <p className="font-display relative text-[0.68rem] tracking-[0.38em] text-[#7a1f12] uppercase">
         {fate.card.number} · {fate.card.symbol}
       </p>
-      <h2 className="font-display mt-2 text-3xl tracking-[0.12em] text-[#2a1a10] uppercase">
+      <h2 className="font-display relative mt-2 text-3xl tracking-[0.12em] text-[#2a1a10] uppercase">
         {fate.story.title}
       </h2>
-      <div className="mt-5 space-y-4">
+      <div className="relative mt-5 space-y-4">
         <AnimatePresence>
           {shown.map((paragraph) => (
             <motion.p
@@ -51,14 +52,14 @@ export function StoryPanel({
       </div>
       {fortuneRevealed && fate.story.fortuneLine ? (
         <motion.p
-          className="fortune-line font-serif mt-8 border-t border-[#8a703866] pt-5 text-xl"
+          className="fortune-line font-serif relative mt-8 border-t border-[#8a703866] pt-5 text-xl"
           initial={{ opacity: 0 }}
           animate={{ opacity: 1 }}
         >
           {fate.story.fortuneLine}
         </motion.p>
       ) : (
-        <p className="mt-6 text-xs tracking-[0.22em] text-[#6a5340] uppercase">
+        <p className="relative mt-6 text-xs tracking-[0.22em] text-[#6a5340] uppercase">
           Continue
         </p>
       )}
