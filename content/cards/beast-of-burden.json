@@ -4,7 +4,7 @@
   "number": "IX",
   "status": "published",
   "symbol": "wolf",
-  "frontImage": "/cards/beast-of-burden/front.jpg",
+  "frontImage": "/cards/beast-of-burden/front.png",
   "backImage": "/cards/shared/back.png",
   "keywords": ["labor", "flattery", "rebirth"],
   "vanishEffect": "embers",

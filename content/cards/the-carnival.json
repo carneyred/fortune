@@ -4,7 +4,7 @@
   "number": "VII",
   "status": "published",
   "symbol": "mask",
-  "frontImage": "/cards/the-carnival/front.jpg",
+  "frontImage": "/cards/the-carnival/front.png",
   "backImage": "/cards/shared/back.png",
   "keywords": ["music", "forgetting", "shadow"],
   "vanishEffect": "flash-fire",

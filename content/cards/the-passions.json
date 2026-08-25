@@ -4,7 +4,7 @@
   "number": "VIII",
   "status": "published",
   "symbol": "heart",
-  "frontImage": "/cards/the-passions/front.jpg",
+  "frontImage": "/cards/the-passions/front.png",
   "backImage": "/cards/shared/back.png",
   "keywords": ["desire", "mirror", "ascent"],
   "vanishEffect": "flash-fire",

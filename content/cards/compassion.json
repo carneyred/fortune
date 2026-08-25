@@ -4,7 +4,7 @@
   "number": "III",
   "status": "published",
   "symbol": "thorn",
-  "frontImage": "/cards/compassion/front.jpg",
+  "frontImage": "/cards/compassion/front.png",
   "backImage": "/cards/shared/back.png",
   "keywords": ["patience", "help", "darkness"],
   "vanishEffect": "fade-grain",

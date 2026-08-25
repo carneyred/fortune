@@ -4,7 +4,7 @@
   "number": "VI",
   "status": "published",
   "symbol": "Never",
-  "frontImage": "/cards/the-clock/front.jpg",
+  "frontImage": "/cards/the-clock/front.png",
   "backImage": "/cards/shared/back.png",
   "keywords": ["winding", "debt", "thirteen"],
   "vanishEffect": "embers",

@@ -4,7 +4,7 @@
   "number": "IV",
   "status": "published",
   "symbol": "nest",
-  "frontImage": "/cards/sanctuary/front.jpg",
+  "frontImage": "/cards/sanctuary/front.png",
   "backImage": "/cards/shared/back.png",
   "keywords": ["safety", "appetite", "entrapment"],
   "vanishEffect": "dust",

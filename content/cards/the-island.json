@@ -4,7 +4,7 @@
   "number": "X",
   "status": "published",
   "symbol": "wave",
-  "frontImage": "/cards/the-island/front.jpg",
+  "frontImage": "/cards/the-island/front.png",
   "backImage": "/cards/shared/back.png",
   "keywords": ["signal", "longing", "misreading"],
   "vanishEffect": "fade-grain",

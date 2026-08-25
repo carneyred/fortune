@@ -4,7 +4,7 @@
   "number": "I",
   "status": "published",
   "symbol": "bell",
-  "frontImage": "/cards/the-bell/front.jpg",
+  "frontImage": "/cards/the-bell/front.png",
   "backImage": "/cards/shared/back.png",
   "keywords": ["silence", "warding", "return"],
   "vanishEffect": "dust",

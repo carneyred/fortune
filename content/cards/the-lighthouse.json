@@ -4,7 +4,7 @@
   "number": "XI",
   "status": "published",
   "symbol": "flame",
-  "frontImage": "/cards/the-lighthouse/front.jpg",
+  "frontImage": "/cards/the-lighthouse/front.png",
   "backImage": "/cards/shared/back.png",
   "keywords": ["duty", "endurance", "light"],
   "vanishEffect": "dust",

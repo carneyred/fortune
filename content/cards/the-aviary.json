@@ -4,7 +4,7 @@
   "number": "XII",
   "status": "published",
   "symbol": "key",
-  "frontImage": "/cards/the-aviary/front.jpg",
+  "frontImage": "/cards/the-aviary/front.png",
   "backImage": "/cards/shared/back.png",
   "keywords": ["capture", "desire", "entrapment"],
   "vanishEffect": "embers",

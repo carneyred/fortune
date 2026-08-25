@@ -4,7 +4,7 @@
   "number": "V",
   "status": "published",
   "symbol": "fence",
-  "frontImage": "/cards/the-palisade/front.jpg",
+  "frontImage": "/cards/the-palisade/front.png",
   "backImage": "/cards/shared/back.png",
   "keywords": ["walls", "fear", "enclosure"],
   "vanishEffect": "fade-grain",

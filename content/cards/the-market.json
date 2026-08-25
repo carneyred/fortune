@@ -4,7 +4,7 @@
   "number": "II",
   "status": "published",
   "symbol": "coin",
-  "frontImage": "/cards/the-market/front.jpg",
+  "frontImage": "/cards/the-market/front.png",
   "backImage": "/cards/shared/back.png",
   "keywords": ["trade", "loss", "appetite"],
   "vanishEffect": "fade-grain",

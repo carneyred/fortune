@@ -40,7 +40,7 @@ UI never reads files. `src/lib/content/service.ts` loads JSON from disk and hand
 content/settings/site.json
 content/scenes/*.json
 content/cards/*.json
-public/cards/<id>/front.jpg
+public/cards/<id>/front.png
 public/cards/shared/back.png
 ```
 
@@ -56,7 +56,7 @@ If fewer than five published cards exist, the table refuses the reading and show
 ### Add a 13th card
 
 1. Create `content/cards/new-id.json` using the shape below.
-2. Drop art at `public/cards/new-id/front.jpg`.
+2. Drop art at `public/cards/new-id/front.png`.
 3. Restart the dev server (or rebuild).
 
 ```json
@@ -66,7 +66,7 @@ If fewer than five published cards exist, the table refuses the reading and show
   "number": "XIII",
   "status": "published",
   "symbol": "coin",
-  "frontImage": "/cards/new-id/front.jpg",
+  "frontImage": "/cards/new-id/front.png",
   "backImage": "/cards/shared/back.png",
   "keywords": ["omen"],
   "vanishEffect": "embers",
